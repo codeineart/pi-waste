@@ -47,31 +47,6 @@ Vue.use(Datatable);
 
 // Router components
 import App from 'src/App';
-import router from 'src/router';
-
-/**
- * to: Route: the target Route Object being navigated to.
- * from: Route: the current route being navigated away from
- * next: function: this function must be called to resolve the hook.
- * action depends on the arguments provided to next.
- */
-router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    // navigation requires auth, dispatch
-    store.dispatch('AUTH_TOKEN_CHECK').then(tokenValid => {
-      if (!tokenValid) {
-        alert('Acceso denegado');
-        next('/login');
-      } else {
-        // continue navigation
-        next();
-      }
-    });
-  } else {
-    // route without authorization required
-    next();
-  }
-});
 
 Vue.config.productionTip = false;
 Vue.config.silent = false;
