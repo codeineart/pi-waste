@@ -1,5 +1,5 @@
 <template>
-  <h1>Hello World</h1>
+  <h1>{{ mes }}</h1>
 </template>
 
 <script>
@@ -7,7 +7,15 @@
 
 export default {
   name: 'app',
-  data: () => ({}),
+  data: () => ({
+    mes: 'Hola Mundo',
+  }),
+  mounted() {
+    let _vm = this;
+    setTimeout(() => {
+      _vm.mes = 'ashckasdhcjhasdgvcjasdgc';
+    }, 2000);
+  },
 };
 </script>
 
