@@ -2,9 +2,13 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Router from 'vue-router'
+import Router from 'vue-router';
 import VueSession from 'vue-session';
 import VueCookie from 'vue-cookie';
+
+// Vuetify
+import Vuetify from 'vuetify';
+import 'vuetify/dist/vuetify.min.css';
 
 // Visual imports
 import icons from 'glyphicons';
@@ -12,13 +16,19 @@ import icons from 'glyphicons';
 // Vue importing
 Vue.use(VueCookie);
 Vue.use(Vuex);
-Vue.use(Router)
+Vue.use(Router);
 Vue.mixin({
   methods: {
     // Gets rid of reactive stuff when printing data objects
     purify: reactiveObject => {
       return JSON.parse(JSON.stringify(reactiveObject));
     },
+  },
+});
+Vue.use(Vuetify, {
+  theme: {
+    primary: '#d3d3d3',
+    accent: '#e65c00',
   },
 });
 
@@ -41,12 +51,9 @@ Vue.prototype.$cout = (content = '{{ Input Variable }}', title = 'Simple logging
   console.log(output);
 };
 
-// import Datatable from 'vue2-datatable-component';
-// Vue.use(Datatable);
-
 // Router components
 import App from 'src/App';
-import router from 'src/router'
+import router from 'src/router';
 
 Vue.config.productionTip = false;
 Vue.config.silent = false;
