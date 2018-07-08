@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Vuex from 'vuex';
+import Router from 'vue-router'
 import VueSession from 'vue-session';
 import VueCookie from 'vue-cookie';
 
@@ -11,6 +12,7 @@ import icons from 'glyphicons';
 // Vue importing
 Vue.use(VueCookie);
 Vue.use(Vuex);
+Vue.use(Router)
 Vue.mixin({
   methods: {
     // Gets rid of reactive stuff when printing data objects
@@ -44,12 +46,14 @@ Vue.prototype.$cout = (content = '{{ Input Variable }}', title = 'Simple logging
 
 // Router components
 import App from 'src/App';
+import router from 'src/router'
 
 Vue.config.productionTip = false;
 Vue.config.silent = false;
 
 const app = new Vue({
   el: '#app',
+  router,
   template: '<App/>',
   components: {
     App,

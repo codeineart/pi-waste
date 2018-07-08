@@ -12,7 +12,7 @@ export default {
   }),
   mounted() {
     let _vm = this;
-    setTimeout(() => {
+    setTimeout( () => {
       _vm.mes = 'ashckasdhcjhasdgvcjasdgc';
     }, 2000);
   },
